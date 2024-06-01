@@ -1,0 +1,53 @@
+<div class="row">
+	<div class="col bg-dark">
+		<p class="text-white fs-4 text-center mt-3">Admin Panel</p>
+	</div>
+	
+</div>
+
+<div class="row justify-content-center mt-3 ms-3 me-3 bg-secondary rounded shadow">
+	<div class="col-6">
+	<p class="text-white fw-bold fs-2 text-start ms-3 mt-3"> ALL EMPLOYEES</p>
+	</div>
+	<div class="col-6 text-end  ">
+		<button class="btn mt-3 p-2 bg-white btn-outline-success text-dark shadow"> <a href="/add-emp" class="text-success">Add Employee</a></button>
+	</div>
+</div>
+
+<div class="container pt-5">
+	<div class="row justify-content-center">
+		<div class="col-10">
+				
+
+				<table class="table table-bordered table-striped table-hover">
+					<tr><th>FirstName</th><th>LastName</th>
+						<th>EmailId</th><th>PhoneNo.</th><th>gender</th><th>D.O.B</th></tr>
+					<tr *ngFor="let d of data" class="mt-3">
+					    <td>{{d.firstName}} </td>
+						<td>{{d.lastName}}</td>
+						<td>{{d.emailId}}</td>
+						<td> {{d.phoneNo}}</td>
+						<td> {{d.gender}}</td>
+						<td> {{d.dob}}</td>
+						<td><a class="btn btn-success bg-success btn-sm mt-1 mb-1" [routerLink]="['/update-emp',d._id]" >Update</a></td>
+						<td><button class="btn btn-danger bg-danger btn-sm mt-1 mb-1"(click)="del(d._id)" >Delete</button></td>
+						</tr>
+				</table>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-10">
+
+<router-outlet></router-outlet>	
+</div>
+
